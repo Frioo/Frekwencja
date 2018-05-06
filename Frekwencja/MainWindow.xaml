@@ -1,0 +1,23 @@
+﻿<Window x:Name="MainWindow1" x:Class="Frekwencja.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frekwencja"
+        mc:Ignorable="d"
+        Title="Frekwencja" Height="455" Width="360" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="4">
+        <StackPanel Orientation="Vertical">
+            <Label>Identyfikator</Label>
+            <TextBox x:Name="IdentifierBox" TabIndex="0"/>
+            <Label>Hasło</Label>
+            <PasswordBox x:Name="PasswordBox" TabIndex="1"/>
+            <Button x:Name="LoginButton" Margin="0 4 0 4" IsDefault="True" Click="LoginButton_Click">Zaloguj się</Button>
+        </StackPanel>
+        <Separator Margin="4"/>
+        <Label>Wybierz przedmiot</Label>
+        <ListBox x:Name="ListBoxSubjects" Height="125" IsSynchronizedWithCurrentItem="True" TabIndex="2" SelectionChanged="ListBoxSubjects_OnSelectionChanged"/>
+        <Label>Frekwencja</Label>
+        <ListView x:Name="ListViewAttendanceData" Height="106"/>
+    </StackPanel>
+</Window>

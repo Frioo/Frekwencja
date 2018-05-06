@@ -1,0 +1,7 @@
+﻿[v1.1]
+* Pokazywanie liczby spóźnień
+* Ulepszenia w procesie logowania i pobierania danych
+* Poprawki błędów i zmiany kosmetyczne
+
+[v1.0]
+* Pierwsza wersja publiczna
