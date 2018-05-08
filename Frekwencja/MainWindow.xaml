@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Frekwencja"
         mc:Ignorable="d"
-        Title="Frekwencja" Height="455" Width="360" WindowStartupLocation="CenterScreen">
+        Title="Frekwencja" Height="480" Width="360" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="4">
         <StackPanel Orientation="Vertical">
             <Label>Identyfikator</Label>
@@ -15,9 +15,12 @@
             <Button x:Name="LoginButton" Margin="0 4 0 4" IsDefault="True" Click="LoginButton_Click">Zaloguj się</Button>
         </StackPanel>
         <Separator Margin="4"/>
+        <Button x:Name="GlobalStatsButton" IsEnabled="False" Margin="0 4 0 4" Click="GlobalStatsButton_OnClick">
+            Pokaż dane z całego roku
+        </Button>
         <Label>Wybierz przedmiot</Label>
         <ListBox x:Name="ListBoxSubjects" Height="125" IsSynchronizedWithCurrentItem="True" TabIndex="2" SelectionChanged="ListBoxSubjects_OnSelectionChanged"/>
-        <Label>Frekwencja</Label>
+        <Label x:Name="ListViewAttendanceDataHeader">Frekwencja</Label>
         <ListView x:Name="ListViewAttendanceData" Height="106"/>
     </StackPanel>
 </Window>

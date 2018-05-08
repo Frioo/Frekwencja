@@ -50,6 +50,7 @@ namespace Frekwencja
                 await ProcessAttendances();
             }
 
+            GlobalStatsButton.IsEnabled = true;
             LoginButton.IsEnabled = true;
             LoginButton.Content = "Zaloguj się";
         }
@@ -68,6 +69,7 @@ namespace Frekwencja
         private void ListBoxSubjects_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListViewAttendanceData.Items.Clear();
+            ListViewAttendanceDataHeader.Content = "Frekwencja (dane dla wybranego przedmiotu)";
             if (ListBoxSubjects.SelectedValue == null) return;
             Utils.Log($"Selected value: {ListBoxSubjects.SelectedValue}");
             var attendancesForSubject = new List<Attendance>();
@@ -80,8 +82,20 @@ namespace Frekwencja
                 }
             }
 
-            var info = new AttendanceInfo(attendancesForSubject);
+            AddListItems(new AttendanceInfo(attendancesForSubject));
+        }
 
+        private void GlobalStatsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Utils.Log("global stats button: click");
+            ListViewAttendanceData.Items.Clear();
+            ListViewAttendanceDataHeader.Content = "Frekwencja (dane ze wszystkich przedmiotów)";
+
+            AddListItems(new AttendanceInfo(Attendances));
+        }
+
+        private void AddListItems(AttendanceInfo info)
+        {
             if (!info.DataAvailable)
             {
                 ListViewAttendanceData.Items.Add("Brak danych");
