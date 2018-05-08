@@ -45,7 +45,7 @@ namespace Frekwencja
             else
             {
                 LoginButton.Content = "Pobieranie danych...";
-                this.Title = $"Frekwencja {Version} | {data.Username}";
+                this.Title = $"Frekwencja {Version} | {identifier}";
                 ListBoxSubjects.Items.Clear();
                 await ProcessAttendances();
             }
